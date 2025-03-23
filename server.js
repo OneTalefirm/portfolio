@@ -3,6 +3,11 @@ const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
 // server used to send send emails
 const app = express();
 app.use(cors());
