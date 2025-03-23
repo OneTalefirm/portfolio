@@ -1,57 +1,57 @@
 const express = require("express");
-const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
-// server used to send send emails
 const app = express();
+const router = express.Router();
+const PORT = process.env.PORT || 8080;
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(5001, () => console.log("Server Running"));
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
 
+// Start Server (Only Once)
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Nodemailer Transporter (Use Environment Variables)
 const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    user: "satapathyjjivan@gmail.com",
-    pass: "flrt yexi wmqb smeh"
+    user: process.env.EMAIL_USER,  // Load from environment variable
+    pass: process.env.EMAIL_PASS,  // Load from environment variable
   },
 });
 
 contactEmail.verify((error) => {
   if (error) {
-    console.log(error);
+    console.log("Email Error:", error);
   } else {
-    console.log("Ready to Send");
+    console.log("Ready to Send Emails");
   }
 });
 
+// Contact Form Route
 router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
+  const { firstName, lastName, email, message, phone } = req.body;
+  const name = `${firstName} ${lastName}`; // Fixes spacing issue
+
   const mail = {
     from: name,
-    to: "satapathyjjivan@gmail.com",
+    to: process.env.EMAIL_USER, // Use environment variable
     subject: "Contact Form Submission - Portfolio",
-    html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Phone: ${phone}</p>
-           <p>Message: ${message}</p>`,
+    html: `<p><strong>Name:</strong> ${name}</p>
+           <p><strong>Email:</strong> ${email}</p>
+           <p><strong>Phone:</strong> ${phone}</p>
+           <p><strong>Message:</strong> ${message}</p>`,
   };
+
   contactEmail.sendMail(mail, (error) => {
     if (error) {
-      res.json(error);
+      console.error("Email Send Error:", error);
+      res.status(500).json({ error: "Email not sent" });
     } else {
-      res.json({ code: 200, status: "Message Sent" });
+      res.status(200).json({ message: "Message Sent Successfully!" });
     }
   });
 });
