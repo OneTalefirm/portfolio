@@ -37,7 +37,7 @@ export const Projects = () => {
       title: "Valentine app",
       description: "Javascript (Design & Development)",
       imgUrl: projImg5,
-      link: "https://jivansatapathy.github.io/proposal2/",
+      link: "",
     },
 
     {
