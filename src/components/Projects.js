@@ -28,6 +28,11 @@ export const Projects = () => {
       imgUrl: projImg2,
     },
     {
+      title: "Sakhyam - Club",
+      description: "JS & API integration",
+      imgUrl: projImg3,
+    },
+    {
       title: "Medibot Kiosk Chat-Bot",
       description: "Javascript (Design & Development)",
       imgUrl: projImg4,
