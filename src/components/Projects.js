@@ -7,7 +7,7 @@ import projImg4 from "../assets/img/Medibot.png";
 import projImg5 from "../assets/img/valentine.png";
 import projImg6 from "../assets/img/Hotelmain.png";
 import projImg7 from "../assets/img/college.png";
-import blimport blogImg1 from "../assets/img/Ludo.png"; // Replace with your blog preview image
+import blogImg1 from "../assets/img/Ludo.png"; // Replace with your blog preview image
 import blogImg2 from "../assets/img/Scholarship.png"; // Replace with your blog preview image
 import blogImg3 from "../assets/img/Haryana.png"; // Replace with your blog preview image
 import colorSharp2 from "../assets/img/color-sharp2.png";
