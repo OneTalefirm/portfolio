@@ -1,11 +1,8 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 
-import projImg1 from "../assets/img/krishi.png";
+
 import projImg2 from "../assets/img/Quote.png";
-import projImg3 from "../assets/img/sakhyam.jpg";
-import projImg4 from "../assets/img/Medibot.png";
-import projImg5 from "../assets/img/valentine.png";
 import projImg6 from "../assets/img/Hotelmain.png";
 import projImg7 from "../assets/img/college.png";
 
@@ -20,29 +17,9 @@ import TrackVisibility from "react-on-screen";
 export const Projects = () => {
   const projects = [
     {
-      title: "Plant Disease Detection",
-      description: "Machine Learning Model",
-      imgUrl: projImg1,
-    },
-    {
       title: "Quote Generator App",
       description: "JS & API Integration",
       imgUrl: projImg2,
-    },
-    {
-      title: "Sakhyam - Club Website",
-      description: "JS & API Integration",
-      imgUrl: projImg3,
-    },
-    {
-      title: "Medibot Kiosk Chat-Bot",
-      description: "JavaScript (Design & Development)",
-      imgUrl: projImg4,
-    },
-    {
-      title: "Valentine App",
-      description: "JavaScript (Design & Development)",
-      imgUrl: projImg5,
     },
     {
       title: "Hotel Miranda",
